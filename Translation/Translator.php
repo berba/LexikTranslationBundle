@@ -41,6 +41,9 @@ class Translator extends BaseTranslator
         }
 
         foreach ($resources as $resource) {
+            if (!$resource['locale']) {
+                continue;
+            }
             $this->addResource('database', 'DB', $resource['locale'], $resource['domain']);
         }
     }
